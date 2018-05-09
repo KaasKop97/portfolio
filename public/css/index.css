@@ -1,0 +1,79 @@
+body {
+    color: #fff;
+    font-family: Inconsolata, sans-serif;
+    font-size: 12px;
+}
+
+a {
+    color: #fff;
+}
+
+a:visited {
+    color: #aaa;
+}
+
+h2 {
+    text-align: center;
+}
+
+#header {
+    padding-bottom: 5px;
+    border-bottom: 1px black solid;
+}
+
+.project-details {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 20%;
+
+}
+
+.projectImg {
+    max-width: 300px;
+    max-height: 300px;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 5px 20px 20px 20px;
+}
+
+.project-index-details {
+    float: left;
+    margin: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.project-details-text   {
+    padding: 5px 20px 20px 20px;
+}
+
+.title  {
+    padding: 5px 0 0 20px;
+}
+
+#content:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    display: block;
+    background-image: url('../img/wall.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+}
+
+#content {
+    overflow: auto;
+    position: relative;
+}

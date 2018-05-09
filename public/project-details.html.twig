@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project - {{ project.1 }}</title>
+    <link rel="stylesheet" href="public/css/index.css"/>
+</head>
+<body>
+<div id="content">
+    <div id="header">
+        <a href="/">Projects</a>
+        <a href="about.php">About me</a>
+    </div>
+    <div class="project-details">
+        <h1 class="title">{{ project.1 }}</h1>
+        <img class="projectImg" src="/{{ project.6 }}"/>
+        <div class="project-details-text">
+            <p>Team: {{ project.2 }}</p>
+            <p>Finished on: {{ project.5 }}</p>
+            {% if project.7 %}
+                <p>Files: <a href="{{ project.7 }}">Found here.</a></p>
+            {% else %}
+                <p>Files: No files.</p>
+            {% endif %}
+            <p>Description:<br/>{{ project.3 }}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="public/css/index.css"/>
+</head>
+<body>
+<div id="content">
+    <div id="header">
+        <a href="/">Projects</a>
+        <a href="about.php">About me</a>
+    </div>
+    <div class="projects">
+        {% for project in projects %}
+            <div class="project-index-details">
+                <h2>Project: {{ project.1 }}</h2>
+                <a href="project-details.php?id={{ project.0 }}">
+                    <img class="projectImg" src="{{ project.6 }}"/>
+                </a>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
