@@ -5,11 +5,20 @@ $db = new dbHelper();
 $loader = new Twig_Loader_Filesystem("public");
 $twig = new Twig_Environment($loader);
 
-$test = $db->getFromDb("SELECT * FROM projecten")->fetchAll();
+$test = $db->getFromDb("SELECT ID, name, picture FROM projecten");
 
-try {
-    echo $twig->render('index.html.twig', array('projects' => $test));
-} catch (Exception $e)  {
-    echo $e->getMessage();
+if($test->rowCount() != 0)  {
+    try {
+        echo $twig->render('index.html.twig', array('projects' => $test->fetchAll()));
+    } catch (Exception $e)  {
+        echo $e->getMessage();
+    }
+} else {
+    try {
+        echo $twig->render('index.html.twig', array('projects' => "ERROR: No projects found"));
+    } catch (Exception $e)  {
+        echo $e->getMessage();
+    }
+
 }
 
