@@ -15,7 +15,6 @@ try {
 if (isset($_POST["username"]) and isset($_POST["password"])) {
     $cleanUsername = $db->conn->quote($_POST["username"]);
     $userDb = $db->queryDb("SELECT * FROM users WHERE username=" . $cleanUsername)->fetchAll();
-    print_r($userDb);
 
     if (!empty($userDb)) {
         if ($userDb[0][1] == $_POST["username"]) {

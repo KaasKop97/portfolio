@@ -8,10 +8,7 @@ $twig = new Twig_Environment($loader);
 
 session_start();
 if (!empty($_SESSION) and $_SESSION["loggedin"] == 1) {
-    print_r($_SESSION);
     if (!empty($_POST)) {
-        print_r($_POST);
-
         if (count($_POST) == 5 and isset($_FILES["projectpicture"])) {
             $validPostValues = ["projectname", "projectteam", "projectfinished", "projectfiles", "projectdescription"];
             $error = false;
@@ -23,15 +20,13 @@ if (!empty($_SESSION) and $_SESSION["loggedin"] == 1) {
             if ($error) {
                 print("ERROR: All fields are required");
             } else {
-                print("Would upload...");
-                print_r($_FILES);
                 if($_FILES["projectpicture"]["type"] == "image/jpeg" or $_FILES["projectpicture"]["type"] == "image/png" and $_FILES["projectpicture"]["error"] == 0)   {
-                    print("Moving and renaming file...");
                     $file_extension = pathinfo($_FILES["projectpicture"]["name"])["extension"];
                     move_uploaded_file($_FILES["projectpicture"]["tmp_name"], "public/img/projects/" . $_POST["projectname"] . "." . $file_extension);
                     $db->queryDb("INSERT INTO projecten
                 (name, team, description, date_started, date_completed, picture, url)
                 VALUES(" . $db->conn->quote($_POST['projectname']) . ", " . $db->conn->quote($_POST['projectteam']) . ", " . $db->conn->quote($_POST['projectdescription']) . ", " . $db->conn->quote($_POST['projectfinished']) . ", " . $db->conn->quote($_POST['projectfinished']) . ", " . $db->conn->quote("public/img/projects/" . $_POST["projectname"] . "." . $file_extension) . ", " . $db->conn->quote($_POST['projectfiles']) . ");");
+                print("Insertion succesfull. ( ͡° ͜ʖ ͡°)");
                 }
             }
         } else {
