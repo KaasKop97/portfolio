@@ -5,7 +5,7 @@ $db = new dbHelper();
 $loader = new Twig_Loader_Filesystem("public");
 $twig = new Twig_Environment($loader);
 
-$test = $db->getFromDb("SELECT ID, name, picture FROM projecten");
+$test = $db->queryDb("SELECT ID, name, picture FROM projecten");
 
 if($test->rowCount() != 0)  {
     try {

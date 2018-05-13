@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio - Admin panel</title>
+    <link rel="stylesheet" href="public/css/index.css"/>
+</head>
+<body>
+<div id="content">
+    <div id="header">
+        <a href="/">Projects</a>
+        <a href="about.php">About me</a>
+    </div>
+    <form action="../admin.php" method="post" id="adminform" enctype="multipart/form-data">
+        <label for="projectname">Project name: </label>
+        <input id="projectname" name="projectname" type="text"/><br/>
+        <label for="projectteam">Project team: </label>
+        <input id="projectteam" name="projectteam" type="text"/><br/>
+        <label for="projectfinished">Project finished(YYYY-MM-DD): </label>
+        <input id="projectfinished" name="projectfinished" type="text"/><br/>
+        <label for="projectfiles">Project files(url): </label>
+        <input id="projectfiles" name="projectfiles" type="text"/><br/>
+        <label for="projectdescription">Project description: </label>
+        <textarea id="projectdescription" name="projectdescription" cols="40" rows="5"></textarea><br/>
+        <label for="projectpicture">Project picture: </label><br/>
+        <input type="file" id="projectpicture" name="projectpicture"/><br/><br/>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>

@@ -6,10 +6,15 @@ $db = new dbHelper();
 $loader = new Twig_Loader_Filesystem("public");
 $twig = new Twig_Environment($loader);
 
-$rowCount = $db->getFromDb("SELECT id FROM projecten")->rowCount();
+$dbIds = $db->queryDb("SELECT id FROM projecten")->fetchAll();
+$ids = [];
 
-if($_GET["id"] <= $rowCount) {
-    $test = $db->getFromDb("SELECT * FROM projecten WHERE id=" . htmlspecialchars($_GET["id"]))->fetchAll();
+foreach ($dbIds as $id) {
+    array_push($ids, $id[0]);
+}
+
+if(in_array($_GET["id"], $ids)) {
+    $test = $db->queryDb("SELECT * FROM projecten WHERE id=" . htmlspecialchars($_GET["id"]))->fetchAll();
     try {
         echo $twig->render('project-details.html.twig', array('project' => $test[0]));
     } catch (Exception $e)  {
